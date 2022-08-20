@@ -1,0 +1,143 @@
+<app-menu></app-menu>
+<div class="grid grid-nogutter surface-section text-800">
+    <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+        <section>
+            <span class="block text-6xl font-bold mb-1">Encuentra tu lugar ideal con nosotros</span>
+            <div class="text-6xl text-primary font-bold mb-3">O vende tu inmueble rápidamente</div>
+            
+            <button pButton pRipple (click)="navegate(0,2200)" label="Aprende" type="button" class="mr-3 p-button-outlined"></button>
+            <button pButton pRipple routerLink="/login" label="Comienza ya" type="button" class="p-button-raised"></button>
+        </section>
+    </div>
+    <div class="col-12 md:col-6 overflow-hidden">
+        <img src="../../../assets/img/img1.jpg" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+    </div>
+</div>
+<div class="container">
+    <br><br>
+    <hr color="blue">
+
+    <h2><i class="pi pi-question" style="font-size: 2rem; color: blue;">&nbsp;</i>¿Quiénes somos?</h2>
+    <div class="card">
+        <div class="flex justify-content-center flex-wrap card-container" style="min-height: 200px">
+            <div class="flex justify-content-center justify-content-center m-2"
+                style="min-width: 200px; min-height: 150px">
+                <img alt="Card" height="400px" width="500px" src="../../../assets/img/img2.jpg">
+
+            </div>
+            <div class="flex align-items-center justify-content-center m-2"
+                style="min-width: 200px; min-height: 100px; max-width: 500px;">
+                <p>Somos una empresa inmobiliaria que te ayudará a encontrar tu lugar ideal, podrás arrendar, comprar e includo vender tus inmuebles de forma rápida, segura y simple. Sin mucho papeleo y sin agencias de por medio.</p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <hr color="blue">
+
+    <h2><i class="pi pi-compass" style="font-size: 2rem; color: blue;">&nbsp;</i>Misión y Visión</h2>
+    <div class="card">
+        <div class="flex justify-content-center flex-wrap card-container" style="min-height: 200px">
+            <div class="flex justify-content-center justify-content-center bg-blue-300 font-bold text-white border-round m-2"
+                style="min-width: 200px; min-height: 150px">
+                <p-card header="Misión" [style]="{width: '360px', display: 'inline-block', margin: '20px'}"
+                    styleClass="p-card-shadow">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" height="175px" src="../../../assets/img/mision.jpg">
+                    </ng-template>
+                    <p>Generar valor y confianza en nuestros clientes corporativos a través de nuestra gestión innovadora e individualizada de cada uno de sus activos inmobiliarios.</p>
+                </p-card>
+            </div>
+            <div class="flex align-items-center justify-content-center m-2 bg-blue-300 font-bold text-white border-round"
+                style="min-width: 200px; min-height: 100px; max-width: 500px;">
+
+                <p-card header="Visión" [style]="{width: '360px',display: 'inline-block', margin: '20px'}"
+                    styleClass="p-card-shadow">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" src="../../../assets/img/vision.jpg">
+                    </ng-template>
+                    <p>Ser reconocidos como la mejor alternativa de asesoría, gestión y soluciones innovadoras en activos inmobiliarios corporativos en Colombia.</p>
+                </p-card>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <hr color="blue">
+
+    <div class="card">
+        <h2><i class="pi pi-star" style="font-size: 2rem; color: blue;">&nbsp;</i>¿Cómo funciona?</h2>
+        <p>Aprende los pasos iniciales, cómo acceder a tu perfil y cómo publicar tus inmuebles para vender. También en caso de que estés en la busqueda de una casa ya sea arrendada o comprada conocer el proceso para encontrar de forma rápida y simple ese lugar ideal.</p>
+        <p-tabView [activeIndex]="activeIndex">
+            <p-tabPanel header="Pasos iniciales">
+                <ul>
+                    <li>1. Haciendo clic en la barra de navegación podrás registrarte o iniciar sesión en caso de que ya tengas una cuenta registrada.</li>
+                    <br>
+                    <img src="../../../assets/img/guia1.png">
+                    <hr>
+                    <li>2. Para registrarte puedes hacer clic en el botón "Registrarse" y podrás ingresar un nombre de usuario, correo electrónico (ambos deben ser únicos).</li>
+                    <br>
+                    <img src="../../../assets/img/guia2.png" width="800" height="400">
+                    <hr>
+                    <li>3. Para iniciar sesión hacer clic en el botón "Iniciar Sesión" y acá ingresarás las credenciales que registraste anteriormente</li>
+                    <br>
+                    <img src="../../../assets/img/guia3.png" width="800" height="400">
+                    <hr>
+                    <li>4. Una vez adentro es ideal que termines de completar tu perfil diligenciando el resto de la información. Esto es para facilitar la comunicación con tus futuros clientes.</li>
+                    <br>
+                    <img src="../../../assets/img/guia4.png" width="800" height="400">
+                </ul>
+            </p-tabPanel>
+            <p-tabPanel header="Aprende a vender">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                    est laborum.</p>
+            </p-tabPanel>
+            <p-tabPanel header="Aprende a arrendar">
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                    architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                    aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                    voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+
+    <br><br>
+    <hr color="blue">
+
+    <h2><i class="pi pi-inbox" style="font-size: 2rem; color: blue;">&nbsp;</i>Contáctenos</h2>
+    <div class="card">
+        <div class="flex justify-content-center flex-wrap card-container" style="min-height: 200px">
+            <div class="flex flex-grow-1 justify-content-center justify-content-center m-4 bg-blue-300 font-bold text-white m-2 px-5 py-3 border-round"
+                style="min-width: 200px; min-height: 150px">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="p-field">
+                                <h3>Nombre</h3>
+                                <input type="text" pInputText placeholder="Nombre">
+                            </div>
+                            <div class="p-field">
+                                <h3>Correo electrónico</h3>
+                                <input type="email" pInputText placeholder="Correo">
+                            </div>
+                            <div class="p-field">
+                                <h3>Mensaje</h3>
+                                <textarea [rows]="5" placeholder="Escriba aquí su Mensaje" [cols]="30" pInputTextarea></textarea>
+                            </div>
+                        </div>
+                            <button pRipple pButton type="submit" label="Enviar" class="p-button p-button-success mt-3"></button>
+                    </div>
+                </form>
+            </div>
+            <div class="flex align-items-center justify-content-center m-4"
+                style="min-width: 200px; min-height: 100px; max-width: 500px;">
+                <img alt="Card" height="400px" width="500px" src="../../../assets/img/img3.jpg">
+            </div>
+        </div>
+    </div>
+    <br><br>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,8 @@
+<p-menubar *ngIf="!userLogged" [model]="items">
+    <button pButton pRipple class="p-button-outlined p-button-rounded" routerLink="/register" label="Registrarse" icon="pi pi-sign-in" iconPos="right"></button>
+    <button pButton pRipple class="ml-2 p-button-rounded p-button-primary" routerLink="/login" label="Iniciar Sesión" icon="pi pi-sign-in" iconPos="right"></button>
+</p-menubar>
+
+<p-menubar *ngIf="userLogged" [model]="items2">
+    <button pButton pRipple label="Cerrar sesión" (click)="Logout()" class="p-button-rounded" iconPos="right" icon="pi pi-sign-out"></button>
+</p-menubar>

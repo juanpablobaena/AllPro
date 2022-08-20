@@ -1,0 +1,55 @@
+﻿@model Client
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        New Property
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">New Propertis </h5>
+
+
+        <form asp-action="NewUser" asp-controller="NewUser" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Direccion</label>
+                <input asp-for="NameClient" type="text" class="form-control" id="Nombre" aria-describedby="emailHelp" placeholder="Digite el nombre">
+                <span asp-validation-for="NameClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Email">Barrio</label>
+                <input asp-for="BanckClient" type="number" class="form-control" id="Email" placeholder="Email">
+                <span asp-validation-for="BanckClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Email">Area</label>
+                <input asp-for="DocumentClient" type="number" class="form-control" id="Email" placeholder="Email">
+                <span asp-validation-for="DocumentClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Email">Abitaciones</label>
+                <input asp-for="PhoneClient" type="number" class="form-control" id="Email" placeholder="Email">
+                <span asp-validation-for="PhoneClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Email">#Baños</label>
+                <input asp-for="UserName" type="number" class="form-control" id="Email" placeholder="Email">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Comunicado">Precio</label><br>
+                <input asp-for="UserPassword" type="password" class="from-control" placeholder="Digite su comunicado" id="Comunicado">
+                <span asp-validation-for="UserPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Comunicado">Stratum</label><br>
+                <input asp-for="Email" type="email" class="from-control" placeholder="Digite su comunicado" id="Comunicado">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>

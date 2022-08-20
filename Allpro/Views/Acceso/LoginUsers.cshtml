@@ -1,0 +1,30 @@
+﻿@model Client
+@{
+    ViewData["Title"] = "ListarCo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>Login Users </title>
+<div class="card">
+    <div class="card-header">
+        Comunicados
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Inicio de seccion </h5>
+
+
+        <form asp-action="LoginUsers" asp-controller="Acceso" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Password</label>
+                <input asp-for="UserPassword" type="password" class="form-control" id="UserPassword" aria-describedby="Password Help" placeholder="Digite La contraceña">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input asp-for="Email" type="Email" class="form-control" id="Email" placeholder="Email">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

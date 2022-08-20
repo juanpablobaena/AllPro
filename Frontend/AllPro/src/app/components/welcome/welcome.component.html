@@ -1,0 +1,59 @@
+<app-menu></app-menu>
+<div class="grid grid-nogutter surface-section text-800 p-4">
+    <div class="col-5 md:col-5 p-6 text-center md:text-left flex align-items-center ">
+        <section>
+            <span class="block text-6xl font-bold mb-5">Bienvenido 
+                <span class="text-6xl text-primary font-bold mb-1">Usuario</span>
+            </span>
+            <div class="bg-blue-300 font-bold text-white m-2 px-6 py-6 border-round">
+                <div class="grid">
+                    <div class="col-12 md:col-12">
+                        <div class="surface-card shadow-2 p-3 border-round">
+                            <div class="flex justify-content-between mb-3">
+                                <div>
+                                    <span class="block text-700 font-large mb-3">Tus inmuebles</span>
+                                    <div class="text-700 font-large text-xl">3</div>
+                                </div>
+                                <div class="flex align-items-center justify-content-center bg-orange-100 border-round" style="width:2.5rem;height:2.5rem">
+                                    <i class="pi pi-building text-orange-500 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-12">
+                        <div class="surface-card shadow-2 p-3 border-round">
+                            <div class="flex justify-content-between mb-3">
+                                <div>
+                                    <span class="block text-700 font-large mb-3">Tus vendidos</span>
+                                    <div class="text-700 font-large text-xl">0</div>
+                                </div>
+                                <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
+                                    <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-12">
+                        <div class="surface-card shadow-2 p-3 border-round">
+                            <div class="flex justify-content-between mb-3">
+                                <div>
+                                    <span class="block text-700 font-large mb-3">$ Total vendidos</span>
+                                    <div class="text-700 font-large text-xl">{{0 | currency}}</div>
+                                </div>
+                                <div class="flex align-items-center justify-content-center bg-green-100 border-round" style="width:2.5rem;height:2.5rem">
+                                    <i class="pi pi-dollar text-green-500 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-7 md:col-7 p-6 md:text-center align-items-center shadow-6 border-round">
+        <section>
+            <span class="block text-6xl font-bold mb-1"><i class="pi pi-bolt text-4xl"></i> Novedades y Noticias</span>
+        </section>
+    </div>
+</div>
+<app-footer></app-footer>
