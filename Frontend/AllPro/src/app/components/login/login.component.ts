@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { RequestsService } from '../../services/requests.service';
 import { Router } from '@angular/router';
+import { login } from 'src/app/interfaces/newSession.interface';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -14,10 +16,10 @@ export class LoginComponent implements OnInit {
 
   formUser: FormGroup;
 
-  constructor(private fb: FormBuilder, private rq: RequestsService, private route: Router) {
+  constructor(private fb: FormBuilder, private rq: RequestsService, private route: Router, private http: HttpClient) {
     this.formUser = this.fb.group({
-      usuario: ['', Validators.required],
-      contrasenia: ['', Validators.required]
+      userName: ['', Validators.required],
+      userPassword: ['', Validators.required]
     });
   }
 
@@ -25,13 +27,19 @@ export class LoginComponent implements OnInit {
 
   Login() {
     if (this.formUser.valid) {
-      this.rq.newSession(this.formUser)
-        .subscribe((infoUser: any) => {
+      const request = {
+        UserName: this.formUser.controls['userName'].value,
+        Password: this.formUser.controls['userPassword'].value
+      };
+      this.http.post(this.rq.newSession(), request)
+        .subscribe((infoUser: login) => {
           if (infoUser.valideUser) {
-              localStorage.setItem('userLogged', infoUser.validateUser.toString());
+            localStorage.setItem('userLogged', infoUser.valideUser.toString());
             if (infoUser.isAdministrator) {
               localStorage.setItem('isAdministrator', infoUser.isAdministrator.toString());
             }
+            localStorage.setItem('idUser', infoUser.userId!.toString());
+            localStorage.setItem('userName', infoUser.userName!.toString());
             this.route.navigateByUrl('/welcome');
           } else {
             Swal.fire({
@@ -39,18 +47,10 @@ export class LoginComponent implements OnInit {
               icon: 'error',
               html: 'Usuario o contraseña son inválidos',
               showCloseButton: true,
-              confirmButtonText: 'Ok',
+              confirmButtonText: 'Ok'
             })
           }
         });
-    } else {
-      Swal.fire({
-        title: 'Error al ingresar',
-        icon: 'error',
-        html: 'Por favor diligencia todos los campos',
-        showCloseButton: true,
-        confirmButtonText: 'Ok',
-      })
     }
   }
 

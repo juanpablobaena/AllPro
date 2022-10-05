@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu',
@@ -49,14 +50,16 @@ export class MenuComponent implements OnInit {
           visible: this.isAdministrator
         },
         {
-          label: 'Arrendamientos',
-          routerLink: '/arrendamientos',
-          icon: 'pi pi-home',
+          label: 'Autorizar',
+          routerLink: '/auth',
+          icon: 'pi pi-key',
+          visible: this.isAdministrator
         },
         {
-          label: 'Venta',
-          routerLink: '/ventas',
-          icon: 'pi pi-dollar'
+          label: 'Propiedades',
+          icon: 'pi pi-home',
+          items: [{ label: 'Todos', routerLink: '/arrendamientos', icon: 'pi pi-search' },
+          {label: 'Mis propiedades', routerLink: '/misarrendamientos', icon: 'pi pi-dollar'}]
         }
       ];
     } else {
@@ -76,14 +79,9 @@ export class MenuComponent implements OnInit {
           ]
         },
         {
-          label: 'Arrendamientos',
+          label: 'Propiedades',
           routerLink: '/arrendamientos',
           icon: 'pi pi-home',
-        },
-        {
-          label: 'Venta',
-          routerLink: '/ventas',
-          icon: 'pi pi-dollar'
         }
       ];
     }
@@ -94,8 +92,22 @@ export class MenuComponent implements OnInit {
   }
 
   Logout() {
-    localStorage.removeItem('userLogged');
-    localStorage.removeItem('isAdministrator');
-    this.route.navigateByUrl('/');
+    Swal.fire({
+      title: 'Cerrar sesión',
+      icon: 'info',
+      html: '¿Desea cerrar sesión?',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Salir',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem('userLogged');
+        localStorage.removeItem('isAdministrator');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('idUser');
+        this.route.navigateByUrl('/');
+      }
+    });
   }
 }

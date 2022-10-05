@@ -13,18 +13,13 @@
             </div>
             <div class="text-center w-full">
                 <form [formGroup]="formUser" (ngSubmit)="Login()">
-                    <label for="email1" class="block text-900 font-medium mb-2">Nombre de usuario</label>
-                    <input id="email1" FormControlName="usuario" type="text" pInputText class="w-80 mb-3">
+                    <label for="userName" class="block text-900 font-medium mb-2">Nombre de usuario</label>
+                    <input id="userName" formControlName="userName" type="text" pInputText class="w-80 mb-3">
     
-                    <label for="password1" class="block text-900 font-medium mb-2">Contraseña</label>
-                    <input id="password1" FormControlName="contrasenia" type="password" pInputText class="w-80 mb-3">
+                    <label for="userPassword" class="block text-900 font-medium mb-2">Contraseña</label>
+                    <input id="userPassword" formControlName="userPassword" type="password" pInputText class="w-80 mb-3">
                     <br>
-                    <p-checkbox id="rememberme1" [binary]="true" styleClass="mr-2"></p-checkbox>
-                    <label for="rememberme1" class="text-900">Recuérdame</label>
-                    <a class="font-medium no-underline ml-6 text-blue-500 text-right cursor-pointer">¿Olvidaste tu
-                        contraseña?</a>
-                    <br><br>
-                    <button pButton type="submit" pRipple label="Iniciar Sesión" icon="pi pi-user" class="mr-5 w-4"></button>
+                    <button [disabled]="formUser.invalid" pButton type="submit" pRipple label="Iniciar Sesión" icon="pi pi-user" class="mr-5 w-4"></button>
                     <button pButton pRipple routerLink="" label="Regresar" icon="pi pi-times"
                         class="p-button-danger w-4"></button>
                 </form>

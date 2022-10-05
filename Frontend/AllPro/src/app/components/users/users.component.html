@@ -1,1 +1,94 @@
-<p>users works!</p>
+<app-menu></app-menu>
+<div class="card flex align-items-center justify-content-center mt-2">
+    <div class="w-11 card-container">
+        <p-table #bk [value]="users" [rows]="5" [paginator]="true" [globalFilterFields]="['NameClient','UserName','UserEmail']" responsiveLayout="scroll" >
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    <h1><i class="pi pi-users" style="font-size: 35px;"></i> Usuarios</h1>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText (input)="applyFilterGlobal($event, 'contains')" type="text" title="Buscar por: Nombre, Usuario, Email" placeholder="Buscar usuario..." />
+                    </span>
+                </div>
+            </ng-template>
+        <ng-template pTemplate="header" >
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Nombre Usuario</th> 
+                <th>Email</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono 1</th>
+                <th>Teléfono 2</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td></td>
+                <td>{{user.UserID}}</td>
+                <td>{{user.UserName}}</td>
+                <td>{{user.UserEmail}}</td>
+                <td>{{user.NameClient}}</td>
+                <td>{{user.LastNameClient}}</td>
+                <td>{{user.PhoneClient1}}</td>
+                <td>{{user.PhoneClient2}}</td>
+                <td>
+                    <button pButton pRipple (click)="newEdit(user)" icon="pi pi-pencil" class="p-button-rounded p-button-warning mr-2"></button>
+                    <button pButton pRipple (click)="delete(user.UserID)" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+                </td>
+            </tr>
+        </ng-template>
+        </p-table>
+        <p-table>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    Hay {{users? users.length : 0}} usuarios existentes
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<!-- MODAL EDITAR USUARIO -->
+<p-dialog [(visible)]="dialogEdit" [style]="{width: '700px',height: '480px'}" header="Editar usuario" [modal]="true" styleClass="p-fluid">
+    <br>
+    <form [formGroup]="formUser" (ngSubmit)="editUser()">
+        <div class="formgrid grid">
+            <div class="field w-4">
+                <label for="userName">Nombre usuario</label>
+                <input type="text" pInputText id="userName" formControlName="userName" autofocus />
+            </div>
+            <div class="field w-6 ml-2">
+                <label for="userEmail">Email</label>
+                <input type="text" pInputText id="userEmail" formControlName="userEmail" />
+            </div>
+            <div class="field w-5">
+                <label for="nameClient">Nombre</label>
+                <input type="text" pInputText id="nameClient" formControlName="nameClient" autofocus />
+            </div>
+            <div class="field w-5 ml-2">
+                <label for="lastNameClient">Apellido</label>
+                <input type="text" pInputText id="lastNameClient" formControlName="lastNameClient" />
+            </div>
+            <div class="field w-4">
+                <label for="phoneClient1">Teléfono 1</label>
+                <input type="text" pInputText id="phoneClient1" formControlName="phoneClient1" />
+            </div>
+            <div class="field w-4 ml-2">
+                <label for="phoneClient2">Teléfono 2</label>
+                <input type="text" pInputText id="phoneClient2" formControlName="phoneClient2" />
+            </div>
+        </div>
+        <br>
+        <div class="flex flex-row-reverse formgroup-inline">
+            <div class="field">
+                <button type="button" pButton pRipple label="Cancelar" (click)="dialogEdit = false" icon="pi pi-times" class="p-button-text"></button>
+            </div>
+            <div class="field">
+                <button type="submit" pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-rounded"></button>
+            </div>
+        </div>
+    </form>
+</p-dialog>

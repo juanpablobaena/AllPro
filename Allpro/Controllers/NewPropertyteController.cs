@@ -1,34 +1,27 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Allpro.Datos;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
-using Allpro.Models;
-using Allpro.Datos;
+
 namespace Allpro.Controllers
 {
-    public class NewPropertyteController : Controller
+  public class NewPropertyteController : Controller
+  {
+    private Logica logica = new Logica();
+
+    public IActionResult NewProperty()
     {
-        Logica logica = new Logica();
-        public IActionResult NewProperty()
-        {
-            return View();
-        }
-    
-        [HttpPost]
-        public IActionResult NewProperty(Propertys propertys)
-        {
-             if (!ModelState.IsValid)
-                return View();
-            var Respuesta = logica.NewProperty(propertys);
-            if (Respuesta)
-                return RedirectToAction("Index", "Home");
-            else
-                return View();
-        }
+      return View();
     }
+
+    //[HttpPost]
+    //public IActionResult NewProperty(Propertys propertys)
+    //{
+    //     if (!ModelState.IsValid)
+    //        return View();
+    //    var Respuesta = logica.NewProperty(propertys);
+    //    if (Respuesta)
+    //        return RedirectToAction("Index", "Home");
+    //    else
+    //        return View();
+    //}
+  }
 }
-    

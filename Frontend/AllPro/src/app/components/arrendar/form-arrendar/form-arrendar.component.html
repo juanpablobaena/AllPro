@@ -1,1 +1,86 @@
-<p>form-arrendar works!</p>
+<app-menu></app-menu>
+<div class="card p-4">
+    <div class="flex justify-content-center card-container">
+        <div class="surface-card p-4 shadow-8 border-round lg:w-12">
+            <div class="flex align-items-center justify-content-center">
+                <div class="text-center mb-5">
+                    <p-avatar icon="pi pi-home" [style]="{'background-color': '#2196F3', 'color': '#ffffff'}"
+                        styleClass="mr-2 mb-4" size="xlarge" shape="circle"></p-avatar>
+                    <div class="text-800 text-3xl font-medium mb-3">Agregar nueva Propiedad</div>
+                </div>
+            </div>
+            <form (submit)="createProperty()" [formGroup]="formProperty">
+                <div class="card">
+                    <div class="formgrid grid">
+                        <div class="field col">
+                            <label for="name1" class="block text-900 font-medium mb-2">Dirección</label>
+                            <input id="name1" type="text" pInputText formControlName="address"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="lastname1" class="block text-900 font-medium mb-2">Locación</label>
+                            <input id="lastname1" type="text" pInputText formControlName="direction"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Área en m<sup>2</sup></label>
+                            <input id="user1" type="text" pInputText formControlName="area"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Número de habitaciones</label>
+                            <input id="user1" type="text" pInputText formControlName="numRooms"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Número de baños</label>
+                            <input id="user1" type="text" pInputText formControlName="numBathrooms"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                    </div>
+                    <div class="formgrid grid">
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Precio</label>
+                            <input id="user1" type="text" pInputText formControlName="price"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Estrato</label>
+                            <input id="user1" type="text" pInputText formControlName="stratum"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="email1" class="block text-900 font-medium mb-2">Imagen</label>
+                            <input id="email1" type="file" pInputText
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                    </div>
+                    <div class="formgrid grid">
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Tipo de vivienda</label>
+                            <input id="email1" type="text" pInputText formControlName="typeHouse"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Propiedad para (Arrendar / Vender)</label>
+                            <input id="email1" type="text" pInputText formControlName="typeProperty"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="user1" class="block text-900 font-medium mb-2">Parqueadero</label>
+                            <input id="email1" type="text" pInputText formControlName="parking"
+                                class="p-2 border-2 border-solid surface-border border-round focus:border-primary outline-primary w-full">
+                        </div>
+                        <div class="field col">
+                            <label for="email1" class="block text-900 font-medium mb-2">Descripción</label>
+                            <textarea [rows]="5" [cols]="30" formControlName="description" pInputTextarea [autoResize]=true></textarea>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button pButton pRipple label="Crear" type="submit" icon="pi pi-save" class="w-2 mr-4"></button>
+                <button pButton pRipple label="Regresar" (click)="back()" type="button" icon="pi pi-replay" class="p-button-outlined p-button-danger w-2"></button>
+            </form>
+        </div>
+    </div>
+</div>

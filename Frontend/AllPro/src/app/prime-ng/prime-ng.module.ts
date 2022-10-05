@@ -10,6 +10,10 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CheckboxModule} from 'primeng/checkbox';
 import {AvatarModule} from 'primeng/avatar';
 import {FileUploadModule} from 'primeng/fileupload';
+import { TableModule } from 'primeng/table';
+import {DialogModule} from 'primeng/dialog';
+import {DropdownModule} from 'primeng/dropdown';
+
 
 
 @NgModule({
@@ -24,7 +28,10 @@ import {FileUploadModule} from 'primeng/fileupload';
     InputTextModule,
     CheckboxModule,
     AvatarModule,
-    FileUploadModule
+    FileUploadModule,
+    TableModule,
+    DialogModule,
+    DropdownModule
   ]
 })
 export class PrimeNgModule { }

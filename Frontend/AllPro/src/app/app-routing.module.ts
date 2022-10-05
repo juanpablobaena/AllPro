@@ -8,6 +8,10 @@ import { ArrendarComponent } from './components/arrendar/arrendar.component';
 import { VenderComponent } from './components/vender/vender.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UsersComponent } from './components/users/users.component';
+import { FormArrendarComponent } from './components/arrendar/form-arrendar/form-arrendar.component';
+import { ArrendarpropiosComponent } from './components/arrendar/arrendarpropios/arrendarpropios.component';
+import { VisualizacionComponent } from './components/arrendar/visualizacion/visualizacion.component';
+import { AutorizarComponent } from './components/autorizar/autorizar.component';
 
 const routes: Routes = [
   {
@@ -42,6 +46,22 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent
+  },
+  {
+    path: 'createProperty',
+    component: FormArrendarComponent
+  },
+  {
+    path: 'misarrendamientos',
+    component: ArrendarpropiosComponent
+  },
+  {
+    path: 'visualizacion',
+    component: VisualizacionComponent
+  },
+  {
+    path: 'auth',
+    component: AutorizarComponent
   },
   {
     path: '**',

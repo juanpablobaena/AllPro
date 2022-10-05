@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,10 @@ import { FormVenderComponent } from './components/vender/form-vender/form-vender
 import { ProfileComponent } from './components/profile/profile.component';
 import { UsersComponent } from './components/users/users.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ArrendarpropiosComponent } from './components/arrendar/arrendarpropios/arrendarpropios.component';
+import { VisualizacionComponent } from './components/arrendar/visualizacion/visualizacion.component';
+import { AutorizarComponent } from './components/autorizar/autorizar.component';
 
 
 @NgModule({
@@ -30,12 +35,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormArrendarComponent,
     FormVenderComponent,
     ProfileComponent,
-    UsersComponent
+    UsersComponent,
+    ArrendarpropiosComponent,
+    VisualizacionComponent,
+    AutorizarComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule,
     PrimeNgModule,
     ReactiveFormsModule
   ],

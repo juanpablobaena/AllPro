@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+<div class="card flex align-items-center justify-content-center mt-2">
+    <div class="w-11 card-container">
+        <p-table [value]="auths" [rows]="5" [paginator]="true" responsiveLayout="scroll" >
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    <h1><i class="pi pi-key" style="font-size: 35px;"></i> Autorizaciones pendientes</h1>
+                </div>
+            </ng-template>
+        <ng-template pTemplate="header" >
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Locación</th> 
+                <th>Estrato</th>
+                <th>Dirección</th>
+                <th>Baños</th>
+                <th>Habitaciones</th>
+                <th>Tipo de casa</th>
+                <th>Tipo de propiedad</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-auth>
+            <tr>
+                <td></td>
+                <td>{{auth.AuthID}}</td>
+                <td>{{auth.Location}}</td>
+                <td>{{auth.Stratum}}</td>
+                <td>{{auth.Address}}</td>
+                <td>{{auth.Num_bathrooms}}</td>
+                <td>{{auth.Num_rooms}}</td>
+                <td>{{auth.TypeHouse}}</td>
+                <td>{{auth.TypeProperty}}</td>
+                <td>
+                    <button pButton pRipple (click)="autorization(auth)" icon="pi pi-check" class="p-button-rounded p-button-success mr-2"></button>
+                    <button pButton pRipple (click)="ban(auth.AuthID)" icon="pi pi-ban" class="p-button-rounded p-button-danger"></button>
+                </td>
+            </tr>
+        </ng-template>
+        </p-table>
+        <p-table>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    Hay {{auths? auths.length : 0}} autorizaciones pendientes
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
